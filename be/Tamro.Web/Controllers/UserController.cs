@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Tamro.Common.Interfaces;
 using Tamro.Entities;
 using Tamro.Web.ApiModels;
-using Microsoft.EntityFrameworkCore;
 using Tamro.Web.Misc;
 
 namespace Tamro.Web.Controllers
@@ -51,7 +48,7 @@ namespace Tamro.Web.Controllers
                 var doesExist = await _userService.Get(data.Id);
                 if (doesExist == null)
                 {
-                    return BadRequest("Requested tax class ID does not exist in database.");
+                    return BadRequest("Requested user ID does not exist in database.");
                 }
 
                 entity.Id = doesExist.Id;
@@ -68,7 +65,7 @@ namespace Tamro.Web.Controllers
             var doesExist = await _userService.Get(id);
             if (doesExist == null)
             {
-                return NotFound("Requested tax class ID does not exist in database.");
+                return NotFound("Requested user ID does not exist in database.");
             }
 
 
